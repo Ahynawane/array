@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação</title>
+</head>
+
+<body>
+    <h2>Aplicação Objetos</h2>
+    <p>Entre com os valores nos campos abaixo. Em seguida, clique no botão para
+        obter os resultados.
+    </p>
+    <div>
+        Nome <input id="nome" type="text"><br>
+        Sobrenome <input id="sobrenome" type="text"><br>
+        Idade <input id="idade" type="number"><br>
+
+        <button onclick="enviar()">Enviar</button><br>
+
+        <section id="res"></section>
+    </div>
+
+    <script>
+        function enviar() {
+            let nome = document.getElementById("nome").value
+            let sobrenome = document.getElementById("sobrenome").value
+            let idade = document.getElementById("idade").value
+            let res = document.getElementById("res")
+
+            const person = {
+                firstName: nome,
+                lastName: sobrenome,
+                age: idade,
+                fullName: function () {
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+            document.getElementById("res").innerHTML = "Seu nome completo é <strong>" + person.fullName() + "</strong>, e <br> você tem <strong>" + person.age + " anos de idade.</strong>";
+
+
+        }
+
+    </script>
+</body>
+
+</html>
